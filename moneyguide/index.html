@@ -276,9 +276,6 @@
   /* ---------- password gate ---------- */
   .mg-gate { position:fixed; inset:0; z-index:9999; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:24px; }
   .mg-gate-box { width:100%; max-width:380px; text-align:center; }
-  .mg-gate-box img { height:44px; width:auto; margin:0 auto 28px; display:block; }
-  .mg-gate-box h1 { font-family:"EB Garamond",Georgia,serif; font-weight:500; font-size:22px; color:#fff; margin:0 0 8px; }
-  .mg-gate-box p { color:rgba(255,255,255,.62); font-size:14px; margin:0 0 24px; }
   .mg-gate-form { display:flex; gap:10px; }
   .mg-gate-form input { flex:1; min-width:0; padding:13px 14px; border-radius:6px; border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.06); color:#fff; font-size:15px; font-family:inherit; }
   .mg-gate-form input::placeholder { color:rgba(255,255,255,.4); }
@@ -293,9 +290,6 @@
 <!-- PASSWORD GATE -->
 <div class="mg-gate" id="mgGate">
   <div class="mg-gate-box">
-    <img src="assets/smipc-logo-white.png" alt="SMI Private Client">
-    <h1>This page is for SMI Private Client investors</h1>
-    <p>Enter the access code to view the course.</p>
     <form class="mg-gate-form" id="mgGateForm" autocomplete="off">
       <input type="password" id="mgGatePw" placeholder="Access code" autocomplete="off" autofocus>
       <button type="submit">Enter</button>

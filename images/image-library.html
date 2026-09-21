@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SMI Private Client — photo library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;family=EB+Garamond:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FAF7F2; font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #020E1B; }
+  a { color: #3B9ED4; text-decoration: none; }
+  a:hover { color: #E07B2A; }
+</style>
+</head>
+<body>
+<div style="max-width: 1180px; margin: 0 auto; padding: 64px 40px 96px;">
+  <img src="https://jrennersmi.github.io/test/assets/smipc-logo-navy.svg" alt="SMI Private Client" style="height: 40px; width: 246px; display: block;">
+  <span style="display: block; margin-top: 52px; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #E07B2A;">Photo Library</span>
+  <h1 style="margin: 12px 0 0; font-family: 'EB Garamond', Georgia, serif; font-size: 46px; font-weight: 400; line-height: 1.1;">Seven approved photographs</h1>
+  <span style="display: block; margin-top: 18px; width: 72px; height: 4px; background: #E07B2A;"></span>
+  <p style="margin: 24px 0 0; max-width: 700px; font-size: 17px; line-height: 1.7; color: #43505f;">Everything cleared for client-facing work. Click a name to copy it, then tell Claude which one you want &mdash; &ldquo;use couple-beach for the closing slide&rdquo;.</p>
+
+  <div style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px;">
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/hero-couple.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('couple-1');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">couple-1</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">Laughing together on a deck, warm and open. The signature shot — title slides, covers, anything that must feel like the firm.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">hero-couple.webp</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/who-photo.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('couple-2');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">couple-2</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">At home in the kitchen, her arm around him. Quieter and more domestic — planning notes, who-we-serve, the cash flow reserve.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">who-photo.webp</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/diy-photo.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('couple-3');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">couple-3</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">Mid-fifties, working through paperwork at a laptop. The doing-the-work shot — process slides, onboarding, self-directed themes.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">diy-photo.webp</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/couple-beach.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('couple-beach');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">couple-beach</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">Older couple at sunset, looking out over the water. The retirement shot — closing slides, lifestyle and legacy themes.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">couple-beach.jpg</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/couple-advisor.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('couple-with-advisor');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">couple-with-advisor</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">A seated review, advisor in the foreground with a clipboard. Meetings, reviews, the advisory relationship itself.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">couple-advisor.jpg</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/charts-desk.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('charts');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">charts</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">Hands, printed reports and a tablet across a desk. No faces — performance slides and market commentary.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">charts-desk.jpg</span>
+      </div>
+    </div>
+    <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 12px 34px rgba(2,14,27,0.10); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 230px; background: #E8DED2; overflow: hidden;"><img src="https://jrennersmi.github.io/test/images/mark-biller-portrait.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
+      <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 19px; font-weight: 700; color: #020E1B; cursor: pointer;" onclick="navigator.clipboard.writeText('mark-biller');this.style.color='#E07B2A';setTimeout(()=>this.style.color='#020E1B',900)" title="Click to copy">mark-biller</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #43505f;">Mark Biller, portrait. Attribution for strategy commentary and quotes.</span>
+        <span style="font-size: 13px; color: #6b7480; word-break: break-all;">mark-biller-portrait.jpg</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(2,14,27,0.12); display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    <img src="https://jrennersmi.github.io/test/assets/smipc-logo-navy.svg" alt="SMI Private Client" style="height: 22px; width: 135px; display: block; opacity: 0.55;">
+    <span style="font-size: 14px; color: #6b7480;">Internal reference &mdash; not for client distribution</span>
+  </div>
+</div>
+</body>
+</html>

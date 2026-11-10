@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="https://smiprivateclient.com/img/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:Roboto,Arial,sans-serif;color:#374151;-webkit-font-smoothing:antialiased}
+a{color:#0A78CC}a:hover{color:#3388FF}
+*{box-sizing:border-box}
+input,select,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header style="background:#fff;border-bottom:1px solid #e5e7eb">
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(24px,6vw,96px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <img src="https://jrennersmi.github.io/smi-branding/assets/smi-green-left.png" alt="Sound Mind Investing — Financial Wisdom for Living Well" style="width:260px;max-width:55vw;height:auto;display:block"></img>
+    <img src="./assets/cru-military-ministry.png" alt="Cru | Military Ministry" style="height:56px;width:auto;display:block"></img>
+  </div>
+</header>
+
+<section style="background-color:#369076;background-image:linear-gradient(rgba(43,115,94,.86),rgba(43,115,94,.86)),url('https://crumilitary.org/wp-content/uploads/2026/10/27NL10_Photo-7-scaled.jpg');background-size:max(100vw, 210vh) auto;background-repeat:no-repeat;background-position:center 0%;background-attachment:fixed;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:80px clamp(24px,6vw,96px) 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:64px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;background:#fff;color:#2b735e;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Giving Tuesday · Matching Gift</span>
+      <h1 style="margin:0;font-weight:700;font-size:clamp(32px,3.8vw,46px);line-height:1.12;letter-spacing:-.015em;text-wrap:balance">This Giving Tuesday, Double the Gospel Impact to Military Members and Their Families.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.7;max-width:560px;text-wrap:pretty">Every day, there are men and women in uniform stepping into harm's way. Behind the uniform, many are fighting their own quiet battles: restless minds, marriages in crisis, patterns they can't escape, and a heaviness they don't know how to carry. They are miles from home in an unfamiliar culture. Even believers are often without a church family.</p>
+    </div>
+    <div style="background:#fff;color:#111827;border-radius:16px;box-shadow:0 30px 60px -24px rgba(5,30,22,.55);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:26px 28px 6px;display:flex;flex-direction:column;gap:4px">
+        <h2 style="margin:0;font-weight:900;font-size:32px;letter-spacing:-.01em">You can help!</h2>
+        <p style="margin:0;font-size:15px;color:#374151">Every dollar is matched through December 31.</p>
+      </div>
+      <div style="padding:18px 28px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ matches }}" as="m" hint-placeholder-count="3">
+          <button onClick="{{ m.pick }}" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:14px 18px;border-radius:10px;border:2px solid {{ m.border }};background:{{ m.bg }};cursor:pointer;color:#111827;transition:border-color .15s,background .15s">
+            <span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px"><span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#374151">You give</span><span style="font-size:26px;font-weight:700">{{ m.give }}</span></span>
+            <svg width="28" height="18" viewBox="0 0 28 18" fill="none" stroke="#369076" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h22"></path><path d="M17 2l7 7-7 7"></path></svg>
+            <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px"><span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2b735e">Ministry receives</span><span style="font-size:30px;font-weight:900;color:#2b735e">{{ m.impact }}</span></span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="padding:6px 28px 28px">
+        <button onClick="{{ scrollToForm }}" style="width:100%;background:#B91C1C;color:#fff;border:0;border-radius:10px;padding:18px;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer" style-hover="background:#991B1B">Give Now and Double Your Impact</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;background-color:#1f2a30;background-image:linear-gradient(rgba(15,22,26,.5),rgba(15,22,26,.5)),url('https://crumilitary.org/wp-content/uploads/2026/10/27NL10_Photo-7-scaled.jpg');background-size:max(100vw, 210vh) auto;background-repeat:no-repeat;background-position:center 0%;background-attachment:fixed;">
+  <div style="max-width:900px;margin:0 auto;padding:clamp(110px,14vw,180px) clamp(24px,6vw,96px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;color:#fff">
+    <span style="width:56px;height:3px;background:#579E8C"></span>
+    <blockquote style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(26px,3.2vw,40px);line-height:1.35;text-wrap:balance;text-shadow:0 2px 16px rgba(0,0,0,.4)">“Before coming here, I didn't believe in God, but coming here has changed my whole outlook on life and lets me watch how God really works on the outside. I will continue to praise and worship Him.”</blockquote>
+    <span style="font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase">Navy Recruit</span>
+  </div>
+</section>
+
+<section style="background:#3D4B52;color:#fff">
+  <h2 style="margin:0 auto;max-width:1160px;padding:40px clamp(24px,6vw,96px);font-weight:700;font-size:clamp(26px,3.2vw,36px);text-align:center;text-wrap:balance">Help bring the gospel to men and women who serve.</h2>
+</section>
+
+<section style="background:#fff">
+  <div style="max-width:980px;margin:0 auto;padding:80px clamp(24px,6vw,96px) 88px;display:flex;flex-direction:column;gap:64px">
+    <div style="display:flex;flex-direction:column;gap:18px;font-size:18px;line-height:1.7;color:#374151">
+      <p style="margin:0;text-wrap:pretty">By bringing the gospel to the men and women who serve, we get to be part of Jesus' call to make disciples of all nations, reaching people who are sent all over the world. Many of these service members face the real chance of never going home, and they need to know the One who gave His life for them.</p>
+      <p style="margin:0;text-wrap:pretty">Military Ministry is projecting more than 25,000 military members making first-time decisions for Christ in 2026. And there are thousands more who need to hear the hope of the gospel. At SMI, you can help reach these military members for Jesus Christ.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+      <div style="padding:36px 8px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center">
+        <span style="font-size:clamp(48px,6vw,64px);font-weight:900;color:#369076;line-height:1;letter-spacing:-.02em">25,000+</span>
+        <span style="font-size:16px;color:#374151">First-time decisions for Jesus Christ in 2026</span>
+      </div>
+      <div style="padding:36px 8px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;border-left:1px solid #e5e7eb">
+        <span style="font-size:clamp(48px,6vw,64px);font-weight:900;color:#369076;line-height:1;letter-spacing:-.02em">$20,000</span>
+        <span style="font-size:16px;color:#374151">Matching gift opportunity</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#369076;text-align:center">Our Vision for 2027</span>
+      <h2 style="margin:0;font-weight:700;font-size:clamp(30px,3.6vw,40px);line-height:1.15;color:#1f2937;text-align:center">Imagine what we can do together.</h2>
+      <p style="margin:0;font-size:17px;color:#4b5563;text-align:center">With your prayers and generosity, we're trusting God for:</p>
+      <div style="margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+        <div style="background:#fff;border:1px solid #e5e7eb;border-top:4px solid #369076;border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px">
+          <span style="font-size:38px;font-weight:900;color:#111827;letter-spacing:-.02em">30,000+</span>
+          <span style="font-size:16px;line-height:1.55;color:#374151">First-time decisions for Jesus Christ</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-top:4px solid #369076;border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px">
+          <span style="font-size:38px;font-weight:900;color:#111827;letter-spacing:-.02em">125,000</span>
+          <span style="font-size:16px;line-height:1.55;color:#374151">Spiritually Fit — Ready to Serve® booklets distributed in seven languages</span>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-top:4px solid #369076;border-radius:12px;padding:26px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px">
+          <span style="font-size:38px;font-weight:900;color:#111827;letter-spacing:-.02em">150,000</span>
+          <span style="font-size:16px;line-height:1.55;color:#374151">Gospel presentations across the worldwide military community</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section ref="{{ formRef }}" style="background:#f3f4f6;padding:72px 16px">
+  <div style="max-width:820px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 20px 40px -28px rgba(20,40,30,.35);padding:clamp(24px,5vw,48px);display:flex;flex-direction:column;gap:40px">
+
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px">
+      <h2 style="margin:0;font-weight:700;font-size:36px;color:#1f2937">Give a Gift</h2>
+      <div style="display:flex;align-items:center;gap:14px;background:#f3f8f6;border-radius:10px;padding:10px 12px 10px 16px">
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#2b735e;font-weight:700"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V8a6 6 0 1112 0v2h1a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V11a1 1 0 011-1h1zm2 0h8V8a4 4 0 10-8 0v2z"></path></svg>Secure</span>
+          <span style="font-size:14px;font-weight:700;color:#1f2937">Military Ministry Greatest Need</span>
+          <span style="font-size:12px;color:#6b7280">#2283732</span>
+        </div>
+        <img src="https://crumilitary.org/wp-content/uploads/2026/10/27NL10_Photo-7-scaled.jpg" alt="" style="width:64px;height:48px;object-fit:cover;border-radius:6px;display:block"></img>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h3 style="margin:0;font-size:17px;font-weight:700;color:#1f2937;padding-bottom:10px;border-bottom:1px solid #e5e7eb">Gift Frequency</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+        <sc-for list="{{ freqs }}" as="f" hint-placeholder-count="4">
+          <button onClick="{{ f.pick }}" style="height:48px;border-radius:8px;border:1.5px solid {{ f.border }};background:{{ f.bg }};color:{{ f.fg }};font-weight:700;font-size:14px;cursor:pointer">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h3 style="margin:0;font-size:17px;font-weight:700;color:#1f2937;padding-bottom:10px;border-bottom:1px solid #e5e7eb">Gift Amount</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px">
+        <sc-for list="{{ amounts }}" as="a" hint-placeholder-count="4">
+          <button onClick="{{ a.pick }}" style="height:56px;border-radius:8px;border:1.5px solid {{ a.border }};background:{{ a.bg }};color:{{ a.fg }};font-weight:700;font-size:18px;cursor:pointer">{{ a.label }}</button>
+        </sc-for>
+        <div style="grid-column:span 2;position:relative;display:flex;align-items:center">
+          <span style="position:absolute;left:14px;color:#6b7280;font-weight:600">$</span>
+          <input value="{{ other }}" onChange="{{ onOther }}" inputMode="decimal" placeholder="Other amount" style="width:100%;height:56px;border-radius:8px;border:1.5px solid {{ otherBorder }};padding:0 14px 0 28px;font-size:17px;outline:none;background:#fff"></input>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h3 style="margin:0;font-size:17px;font-weight:700;color:#1f2937;padding-bottom:10px;border-bottom:1px solid #e5e7eb">Optional</h3>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <button onClick="{{ toggleMsg }}" style="align-self:flex-start;background:none;border:0;padding:0;color:#0A78CC;font-weight:600;font-size:15px;cursor:pointer;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#e6f1fa;display:inline-flex;align-items:center;justify-content:center;font-size:16px">{{ msgIcon }}</span>Send a message to Cru Military Ministry</button>
+        <sc-if value="{{ showMsg }}" hint-placeholder-val="{{ false }}">
+          <textarea rows="3" placeholder="Your message" style="border:1px solid #d1d5db;border-radius:8px;padding:12px 14px;font-size:15px;resize:vertical;outline:none"></textarea>
+        </sc-if>
+        <button onClick="{{ toggleSpecial }}" style="align-self:flex-start;background:none;border:0;padding:0;color:#0A78CC;font-weight:600;font-size:15px;cursor:pointer;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#e6f1fa;display:inline-flex;align-items:center;justify-content:center;font-size:16px">{{ specialIcon }}</span>Special handling instructions for processing this gift</button>
+        <sc-if value="{{ showSpecial }}" hint-placeholder-val="{{ false }}">
+          <textarea rows="3" placeholder="Instructions" style="border:1px solid #d1d5db;border-radius:8px;padding:12px 14px;font-size:15px;resize:vertical;outline:none"></textarea>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#f3f4f6;border-radius:10px;padding:6px">
+        <sc-for list="{{ giveAs }}" as="g" hint-placeholder-count="2">
+          <button onClick="{{ g.pick }}" style="height:44px;border:0;border-radius:7px;background:{{ g.bg }};color:{{ g.fg }};box-shadow:{{ g.shadow }};font-weight:700;font-size:14px;cursor:pointer">{{ g.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ isOrg }}" hint-placeholder-val="{{ false }}">
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Organization Name <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+      </sc-if>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">First Name <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Last Name <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+      </div>
+      <button onClick="{{ toggleSpouse }}" style="align-self:flex-start;height:40px;padding:0 16px;border-radius:8px;border:1.5px solid #353f4d;background:#fff;color:#353f4d;font-weight:700;font-size:13px;cursor:pointer" style-hover="background:#f3f4f6">{{ spouseLabel }}</button>
+      <sc-if value="{{ showSpouse }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Spouse First Name</span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Spouse Last Name</span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+        </div>
+      </sc-if>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Email Address <span style="color:#B91C1C">*</span></span><input type="email" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Phone</span><input type="tel" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h3 style="margin:0;font-size:17px;font-weight:700;color:#1f2937;padding-bottom:10px;border-bottom:1px solid #e5e7eb">Mailing Address</h3>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Country <span style="color:#B91C1C">*</span></span><select style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 12px;font-size:15px;background:#fff;outline:none"><option>USA</option><option>Canada</option><option>Other</option></select></label>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Address <span style="color:#B91C1C">*</span></span><input placeholder="Street address" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+      <input placeholder="Apt, suite, unit (optional)" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">City <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">State / Region <span style="color:#B91C1C">*</span></span><select style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 12px;font-size:15px;background:#fff;outline:none"><option value="">Select</option><sc-for list="{{ states }}" as="s" hint-placeholder-count="0"><option>{{ s }}</option></sc-for></select></label>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">ZIP / Postal Code <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h3 style="margin:0;font-size:17px;font-weight:700;color:#1f2937;padding-bottom:10px;border-bottom:1px solid #e5e7eb">Payment</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <sc-for list="{{ payMethods }}" as="p" hint-placeholder-count="2">
+          <button onClick="{{ p.pick }}" style="height:60px;border-radius:10px;border:1.5px solid {{ p.border }};background:{{ p.bg }};color:{{ p.fg }};font-weight:700;font-size:15px;cursor:pointer">{{ p.label }}</button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px;background:#fafafa">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <span style="font-weight:700;font-size:16px;color:#1f2937">{{ payTitle }}</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#2b735e;font-weight:700"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V8a6 6 0 1112 0v2h1a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V11a1 1 0 011-1h1zm2 0h8V8a4 4 0 10-8 0v2z"></path></svg>Secure</span>
+        </div>
+        <sc-if value="{{ isCard }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Card Number <span style="color:#B91C1C">*</span></span><input inputMode="numeric" placeholder="1234 5678 9012 3456" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none;background:#fff" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Name on Card <span style="color:#B91C1C">*</span></span><input style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none;background:#fff" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Exp. Month <span style="color:#B91C1C">*</span></span><select style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 12px;font-size:15px;background:#fff;outline:none"><option value="">MM</option><sc-for list="{{ months }}" as="mo" hint-placeholder-count="0"><option>{{ mo }}</option></sc-for></select></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Exp. Year <span style="color:#B91C1C">*</span></span><select style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 12px;font-size:15px;background:#fff;outline:none"><option value="">YYYY</option><sc-for list="{{ years }}" as="y" hint-placeholder-count="0"><option>{{ y }}</option></sc-for></select></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Security Code <span style="color:#B91C1C">*</span></span><input inputMode="numeric" placeholder="CVC" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none;background:#fff" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isBank }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+            <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Routing Number <span style="color:#B91C1C">*</span></span><input inputMode="numeric" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none;background:#fff" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+            <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b5563">Account Number <span style="color:#B91C1C">*</span></span><input inputMode="numeric" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none;background:#fff" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input></label>
+          </div>
+        </sc-if>
+      </div>
+
+      <label style="display:flex;align-items:center;gap:10px;font-size:15px;cursor:pointer"><input type="checkbox" checked="{{ sameAddr }}" onChange="{{ toggleSame }}" style="width:18px;height:18px;accent-color:#369076"></input>Same as Mailing Address</label>
+
+      <div style="border:1px solid #e5e7eb;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-weight:700;font-size:16px;color:#1f2937">Billing Address</span>
+        <sc-if value="{{ sameAddr }}" hint-placeholder-val="{{ true }}">
+          <span style="font-size:14px;color:#6b7280">Using your mailing address.</span>
+        </sc-if>
+        <sc-if value="{{ diffAddr }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <input placeholder="Street address" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+              <input placeholder="City" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input>
+              <select style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 12px;font-size:15px;background:#fff;outline:none"><option value="">State</option><sc-for list="{{ states }}" as="s" hint-placeholder-count="0"><option>{{ s }}</option></sc-for></select>
+              <input placeholder="ZIP" style="height:46px;border:1px solid #d1d5db;border-radius:8px;padding:0 14px;font-size:15px;outline:none" style-focus="border-color:#369076;box-shadow:0 0 0 3px #d6ebe3"></input>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border:1px solid #cfe5dc;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;background:#f3f8f6">
+        <span style="font-weight:700;font-size:16px;color:#1f2937">Optional</span>
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;cursor:pointer"><input type="checkbox" checked="{{ coverFee }}" onChange="{{ toggleFee }}" style="width:18px;height:18px;margin-top:3px;accent-color:#369076;flex:none"></input><span>I want my gift to go even further for ministry! To help cover {{ feeKind }} processing fees, please adjust my gift amount to <strong>{{ feeAmount }}</strong>.</span></label>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;border-top:1px solid #e5e7eb">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-size:13px;color:#6b7280">{{ summaryFreq }}</span>
+        <span style="font-size:30px;font-weight:900;color:#1f2937">{{ totalLabel }}</span>
+        <span style="font-size:13px;color:#2b735e;font-weight:700">{{ matchedLabel }}</span>
+      </div>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ submit }}" style="height:56px;padding:0 36px;border:0;border-radius:8px;background:#B91C1C;color:#fff;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer" style-hover="background:#991B1B">Submit Your Gift</button>
+      </sc-if>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <span style="padding:14px 20px;border-radius:8px;background:#e3f1ec;color:#1f5e4c;font-weight:700">Thank you — your gift is doubled.</span>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#3D4B52;color:#fff">
+  <div style="max-width:860px;margin:0 auto;padding:80px clamp(24px,6vw,96px) 48px;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center">
+    <h2 style="margin:0;font-weight:700;font-size:clamp(24px,3vw,32px);line-height:1.3;text-wrap:balance">Military Ministry is a caring community passionate about connecting the military community to Jesus Christ.</h2>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.6;color:#e5e7eb">
+      <p style="margin:0">Cru is a 501(c)(3) non-profit organization. Contributions to Cru are tax-deductible as allowed by law.</p>
+      <p style="margin:0">Cru has complete discretion and control over the use of donated funds.</p>
+    </div>
+    <img src="./assets/ecfa.png" alt="ECFA Accredited" style="width:72px;height:72px;border-radius:50%;display:block"></img>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.6;color:#d1d5db;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);width:100%">
+      <p style="margin:0">Copyright © 2013–2026 Cru® | Military Ministry. All rights reserved.</p>
+      <p style="margin:0">The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement.</p>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultAmount&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;50&quot;,&quot;100&quot;,&quot;250&quot;,&quot;500&quot;],&quot;default&quot;:&quot;100&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;coverFeeDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { freq: 'Single Gift', amount: null, other: '', giveAs: 'Individual', pay: 'card', sameAddr: true, coverFee: null, showMsg: false, showSpecial: false, showSpouse: false, submitted: false };
+  formRef = React.createRef();
+  scrollToForm = () => { const el = this.formRef.current; if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); };
+  renderVals() {
+    const s = this.state;
+    const amount = s.amount ?? Number(this.props.defaultAmount ?? 100);
+    const coverFee = s.coverFee ?? (this.props.coverFeeDefault ?? false);
+    const val = s.other ? (parseFloat(s.other) || 0) : amount;
+    const fee = Math.round(val * 1.024 * 100) / 100;
+    const total = coverFee ? fee : val;
+    const fmt = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const on = { bg: '#369076', fg: '#fff', border: '#369076' }, off = { bg: '#fff', fg: '#1f2937', border: '#d1d5db' };
+    const freqText = { 'Single Gift': 'One-time gift', Monthly: 'Monthly gift', Quarterly: 'Quarterly gift', Annual: 'Annual gift' }[s.freq];
+    return {
+      formRef: this.formRef,
+      scrollToForm: this.scrollToForm,
+      matches: [[50, 100], [100, 200], [250, 500]].map(([g, i]) => {
+        const sel = !s.other && amount === g;
+        return { give: '$' + g, impact: '$' + i, bg: sel ? '#eef6f2' : '#fff', border: sel ? '#369076' : '#e5e7eb', pick: () => { this.setState({ amount: g, other: '' }); this.scrollToForm(); } };
+      }),
+      freqs: ['Single Gift', 'Monthly', 'Quarterly', 'Annual'].map(l => ({ label: l, ...(s.freq === l ? on : off), pick: () => this.setState({ freq: l }) })),
+      amounts: [50, 100, 250, 500].map(n => ({ label: '$' + n, ...(!s.other && amount === n ? on : off), pick: () => this.setState({ amount: n, other: '' }) })),
+      other: s.other,
+      otherBorder: s.other ? '#369076' : '#d1d5db',
+      onOther: e => this.setState({ other: e.target.value.replace(/[^0-9.]/g, '') }),
+      showMsg: s.showMsg, msgIcon: s.showMsg ? '−' : '+', toggleMsg: () => this.setState({ showMsg: !s.showMsg }),
+      showSpecial: s.showSpecial, specialIcon: s.showSpecial ? '−' : '+', toggleSpecial: () => this.setState({ showSpecial: !s.showSpecial }),
+      giveAs: ['Individual', 'Organization'].map(l => ({ label: (l === 'Individual' ? 'Give as an ' : 'Give as an ') + l, bg: s.giveAs === l ? '#fff' : 'transparent', fg: s.giveAs === l ? '#1f5e4c' : '#4b5563', shadow: s.giveAs === l ? '0 1px 3px rgba(0,0,0,.12)' : 'none', pick: () => this.setState({ giveAs: l }) })),
+      isOrg: s.giveAs === 'Organization',
+      showSpouse: s.showSpouse, spouseLabel: s.showSpouse ? '− Remove Spouse' : '+ Add Spouse', toggleSpouse: () => this.setState({ showSpouse: !s.showSpouse }),
+      states: ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','AA','AE','AP'],
+      months: Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')),
+      years: Array.from({ length: 12 }, (_, i) => String(2026 + i)),
+      payMethods: [['bank', 'Bank Account'], ['card', 'Credit / Debit Card']].map(([k, l]) => ({ label: l, ...(s.pay === k ? on : off), pick: () => this.setState({ pay: k }) })),
+      isCard: s.pay === 'card', isBank: s.pay === 'bank',
+      payTitle: s.pay === 'card' ? 'Credit / Debit Card Payment' : 'Bank Account Payment',
+      sameAddr: s.sameAddr, diffAddr: !s.sameAddr, toggleSame: () => this.setState({ sameAddr: !s.sameAddr }),
+      coverFee, toggleFee: () => this.setState({ coverFee: !coverFee }),
+      feeKind: s.pay === 'card' ? 'credit/debit card' : 'bank',
+      feeAmount: fmt(fee),
+      summaryFreq: freqText,
+      totalLabel: fmt(total),
+      matchedLabel: 'Matched to ' + fmt(total * 2) + ' of impact',
+      notSubmitted: !s.submitted, submitted: s.submitted,
+      submit: () => this.setState({ submitted: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
